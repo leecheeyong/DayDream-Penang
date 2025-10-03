@@ -118,23 +118,31 @@ const sponsors = [
 </script>
 
 <template>
-  <div class="min-h-screen relative overflow-hidden">
+  <div class="min-h-screen relative overflow-hidden font-sans bg-gradient-to-b from-[#A8D8EA] via-[#B8E2F0] to-[#E8D5C4]">
+    <!-- Animated fixed logo bar -->
     <transition name="fade-slide">
       <div
         v-if="showLogoBar"
-        class="fixed left-1/2 -translate-y-3 -translate-x-1/2 z-50 flex items-center transition-all duration-500"
+        class="fixed left-1/2 top-4 -translate-x-1/2 z-50 flex items-center px-5 py-2 rounded-2xl bg-white/80 backdrop-blur-lg shadow-lg border border-white/40 animate-fade-in"
       >
         <img
           src="/daydream-penang.png"
           alt="Daydream Penang"
-          class="sm:h-35 sm:w-60"
+          class="h-10 w-auto rounded-xl"
         />
+        <span class="ml-3 font-bold text-lg tracking-tight text-[#4A7C8C]">Daydream Penang</span>
       </div>
     </transition>
-    <div
-      class="fixed inset-0 bg-gradient-to-b from-[#A8D8EA] via-[#B8E2F0] to-[#E8D5C4] -z-10"
-    ></div>
-    <div class="fixed inset-0 -z-9 pointer-events-none">
+
+    <!-- Animated background shapes -->
+    <div class="pointer-events-none select-none">
+      <div class="absolute top-[-80px] left-[-80px] w-72 h-72 bg-pink-300/30 rounded-full blur-3xl animate-pulse-slow"></div>
+      <div class="absolute bottom-[-100px] right-[-100px] w-96 h-96 bg-blue-200/40 rounded-full blur-3xl animate-pulse-slower"></div>
+      <div class="absolute top-1/2 left-[-60px] w-40 h-40 bg-yellow-200/40 rounded-full blur-2xl animate-pulse"></div>
+    </div>
+
+    <!-- Parallax buildings -->
+    <div class="fixed inset-0 -z-9 pointer-events-none transition-transform duration-300">
       <img
         src="/buildings-back.png"
         alt=""
@@ -142,7 +150,7 @@ const sponsors = [
         loading="eager"
       />
     </div>
-    <div class="fixed inset-0 -z-8 pointer-events-none">
+    <div class="fixed inset-0 -z-8 pointer-events-none transition-transform duration-300">
       <img
         src="/buildings-front.png"
         alt=""
@@ -150,41 +158,37 @@ const sponsors = [
         loading="eager"
       />
     </div>
-    <header class="relative pt-12 sm:pt-16 lg:pt-20 pb-8 sm:pb-12">
+
+    <!-- Hero Section -->
+    <header class="relative pt-20 sm:pt-28 lg:pt-36 pb-8 sm:pb-12">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
-          class="backdrop-blur-md bg-white/70 rounded-3xl shadow-xl border border-white/40 p-8 sm:p-12 lg:p-16"
+          class="backdrop-blur-md bg-white/80 rounded-3xl shadow-2xl border border-white/40 p-6 sm:p-10 lg:p-16 animate-fade-in-up"
         >
           <div class="flex flex-col items-center text-center space-y-6">
-            <div
-              class="flex items-center gap-2 text-sm font-medium text-gray-700"
-            >
+            <div class="flex items-center gap-2 text-sm font-medium text-gray-700">
               <img
                 src="/hackclub.png"
                 alt="Hack Club"
                 class="h-6 w-6 opacity-80"
               />
-              <span
-                class="px-3 py-1 bg-red-500/80 text-white rounded-full text-xs font-bold tracking-wide"
-              >
+              <span class="px-3 py-1 bg-red-500/80 text-white rounded-full text-xs font-bold tracking-wide">
                 Hack Club Presents
               </span>
             </div>
             <img
               src="/daydream.svg"
               alt="Daydream Penang"
-              class="h-20 sm:h-28 md:h-32 w-auto drop-shadow-lg"
+              class="h-20 sm:h-28 md:h-32 w-auto drop-shadow-lg animate-fade-in-up"
             />
             <div class="space-y-3">
-              <p class="text-lg sm:text-xl text-[#5B8FA3] font-semibold italic">
+              <p class="text-lg sm:text-xl text-[#5B8FA3] font-semibold italic animate-fade-in">
                 Memories of September 27th 2025
               </p>
-              <h2
-                class="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#4A7C8C] italic"
-              >
+              <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#4A7C8C] italic animate-fade-in-up-delayed">
                 Game jam for high schoolers
               </h2>
-              <p class="text-sm sm:text-base text-gray-500" ref="headerEndRef">
+              <p class="text-sm sm:text-base text-gray-500 animate-fade-in-up-delayed" ref="headerEndRef">
                 Organized by Teenagers in Penang
               </p>
             </div>
@@ -192,20 +196,18 @@ const sponsors = [
         </div>
       </div>
     </header>
+
+    <!-- About Section -->
     <section class="relative py-8 sm:py-12 lg:py-16">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
-          class="backdrop-blur-md bg-white/60 rounded-3xl shadow-lg border border-white/40 p-6 sm:p-10 lg:p-12"
+          class="backdrop-blur-md bg-white/70 rounded-3xl shadow-lg border border-white/30 p-6 sm:p-10 lg:p-12 animate-fade-in"
         >
           <div class="text-center space-y-6">
-            <h2
-              class="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#4A7C8C]"
-            >
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#4A7C8C]">
               What is Daydream?
             </h2>
-            <div
-              class="space-y-4 text-gray-700 text-base sm:text-lg leading-relaxed"
-            >
+            <div class="space-y-4 text-gray-700 text-base sm:text-lg leading-relaxed">
               <p>
                 Daydream Penang was a student-led hackathon and game-making
                 workshop, part of Hack Club's global Daydream initiative. Our
@@ -222,24 +224,20 @@ const sponsors = [
         </div>
       </div>
     </section>
+
+    <!-- Event Gallery -->
     <section class="relative py-8 sm:py-12 lg:py-16">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2
-          class="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#4A7C8C] drop-shadow-lg mb-8 sm:mb-12 text-center"
-        >
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#4A7C8C] drop-shadow-lg mb-8 sm:mb-12 text-center animate-fade-in">
           Event Gallery
         </h2>
         <div v-if="loading" class="flex justify-center items-center py-20">
           <div class="backdrop-blur-md bg-white/70 rounded-2xl p-8">
-            <div
-              class="animate-spin rounded-full h-12 w-12 border-b-2 border-[#4A7C8C]"
-            ></div>
+            <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-[#4A7C8C]"></div>
           </div>
         </div>
         <div v-else-if="error" class="text-center py-20">
-          <div
-            class="backdrop-blur-md bg-white/70 rounded-2xl p-8 inline-block"
-          >
+          <div class="backdrop-blur-md bg-white/70 rounded-2xl p-8 inline-block">
             <p class="text-gray-700 mb-4">Failed to load media</p>
             <button
               @click="fetchMedia"
@@ -251,12 +249,12 @@ const sponsors = [
         </div>
         <div
           v-else
-          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+          class="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6"
         >
           <div
             v-for="(item, index) in mediaItems"
             :key="index"
-            class="relative group cursor-pointer flex items-center justify-center"
+            class="relative group cursor-pointer flex items-center justify-center animate-fade-in"
             @click="openLightbox(item, index)"
           >
             <div
@@ -336,10 +334,12 @@ const sponsors = [
         </div>
       </div>
     </section>
+
+    <!-- Sponsors Section -->
     <section class="relative py-8 sm:py-10 lg:py-12">
       <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
-          class="backdrop-blur-md bg-white/70 rounded-2xl shadow-md border border-white/30 p-4 sm:p-6"
+          class="backdrop-blur-md bg-white/80 rounded-2xl shadow-md border border-white/30 p-4 sm:p-6 animate-fade-in-up"
         >
           <h2
             class="text-xl sm:text-2xl font-bold text-[#4A7C8C] mb-6 text-center"
@@ -373,6 +373,8 @@ const sponsors = [
         </div>
       </div>
     </section>
+
+    <!-- Footer -->
     <footer class="relative py-8 sm:py-12 backdrop-blur-sm bg-white/30">
       <div
         class="text-center max-w-7xl mx-auto px-4 text-gray-500 sm:px-6 lg:px-8"
@@ -420,95 +422,99 @@ const sponsors = [
         </p>
       </div>
     </footer>
+
+    <!-- Lightbox Modal -->
     <Teleport to="body">
-      <div
-        v-if="selectedMedia"
-        class="fixed inset-0 z-50 bg-black/95 backdrop-blur-xl flex items-center justify-center p-4"
-        @click="closeLightbox"
-      >
-        <button
+      <transition name="fade-slide">
+        <div
+          v-if="selectedMedia"
+          class="fixed inset-0 z-50 bg-black/95 backdrop-blur-xl flex items-center justify-center p-4"
           @click="closeLightbox"
-          class="absolute top-4 right-4 text-white/80 hover:text-white transition-colors z-10 p-2 rounded-full hover:bg-white/10"
-          aria-label="Close"
         >
-          <svg
-            class="w-8 h-8"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
+          <button
+            @click="closeLightbox"
+            class="absolute top-4 right-4 text-white/80 hover:text-white transition-colors z-10 p-2 rounded-full hover:bg-white/10"
+            aria-label="Close"
           >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
-        </button>
-        <button
-          v-if="selectedIndex > 0"
-          @click.stop="prevMedia"
-          class="absolute left-4 text-white/80 hover:text-white transition-colors z-10 p-2 rounded-full hover:bg-white/10"
-          aria-label="Previous"
-        >
-          <svg
-            class="w-8 h-8"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
+            <svg
+              class="w-8 h-8"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+          <button
+            v-if="selectedIndex > 0"
+            @click.stop="prevMedia"
+            class="absolute left-4 text-white/80 hover:text-white transition-colors z-10 p-2 rounded-full hover:bg-white/10"
+            aria-label="Previous"
           >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M15 19l-7-7 7-7"
-            />
-          </svg>
-        </button>
-        <button
-          v-if="selectedIndex < mediaItems.length - 1"
-          @click.stop="nextMedia"
-          class="absolute right-4 text-white/80 hover:text-white transition-colors z-10 p-2 rounded-full hover:bg-white/10"
-          aria-label="Next"
-        >
-          <svg
-            class="w-8 h-8"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
+            <svg
+              class="w-8 h-8"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+          </button>
+          <button
+            v-if="selectedIndex < mediaItems.length - 1"
+            @click.stop="nextMedia"
+            class="absolute right-4 text-white/80 hover:text-white transition-colors z-10 p-2 rounded-full hover:bg-white/10"
+            aria-label="Next"
           >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M9 5l7 7-7 7"
+            <svg
+              class="w-8 h-8"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </button>
+          <div
+            class="absolute top-4 left-4 text-white/90 text-sm backdrop-blur-sm bg-black/30 px-3 py-2 rounded-full z-10"
+          >
+            {{ selectedIndex + 1 }} / {{ mediaItems.length }}
+          </div>
+          <div
+            class="max-w-7xl max-h-full w-full h-full flex items-center justify-center"
+            @click.stop
+          >
+            <video
+              v-if="isVideo(selectedMedia.url)"
+              :src="selectedMedia.url"
+              class="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
+              controls
+              autoplay
             />
-          </svg>
-        </button>
-        <div
-          class="absolute top-4 left-4 text-white/90 text-sm backdrop-blur-sm bg-black/30 px-3 py-2 rounded-full z-10"
-        >
-          {{ selectedIndex + 1 }} / {{ mediaItems.length }}
+            <img
+              v-else
+              :src="selectedMedia.url"
+              :alt="`Gallery image ${selectedIndex + 1}`"
+              class="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
+            />
+          </div>
         </div>
-        <div
-          class="max-w-7xl max-h-full w-full h-full flex items-center justify-center"
-          @click.stop
-        >
-          <video
-            v-if="isVideo(selectedMedia.url)"
-            :src="selectedMedia.url"
-            class="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
-            controls
-            autoplay
-          />
-          <img
-            v-else
-            :src="selectedMedia.url"
-            :alt="`Gallery image ${selectedIndex + 1}`"
-            class="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
-          />
-        </div>
-      </div>
+      </transition>
     </Teleport>
   </div>
 </template>
@@ -530,5 +536,59 @@ const sponsors = [
 .fade-slide-leave-from {
   opacity: 1;
   transform: translateY(0) scale(1);
+}
+
+@media (max-width: 640px) {
+  .sm\:h-35 {
+    height: 2.5rem !important;
+  }
+  .sm\:w-60 {
+    width: 8rem !important;
+  }
+}
+
+/* Animations */
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(30px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+@keyframes fade-in {
+  from { opacity: 0;}
+  to { opacity: 1;}
+}
+@keyframes fade-in-up-delayed {
+  from { opacity: 0; transform: translateY(30px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+@keyframes gradient-move {
+  0%, 100% { background-position: 0% 50%;}
+  50% { background-position: 100% 50%;}
+}
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.7; transform: scale(1);}
+  50% { opacity: 1; transform: scale(1.08);}
+}
+@keyframes pulse-slower {
+  0%, 100% { opacity: 0.5; transform: scale(1);}
+  50% { opacity: 0.8; transform: scale(1.12);}
+}
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s cubic-bezier(.4,0,.2,1) both;
+}
+.animate-fade-in {
+  animation: fade-in 1s cubic-bezier(.4,0,.2,1) both;
+}
+.animate-fade-in-up-delayed {
+  animation: fade-in-up-delayed 1.2s cubic-bezier(.4,0,.2,1) both;
+}
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-move 4s ease-in-out infinite;
+}
+.animate-pulse-slow {
+  animation: pulse-slow 5s ease-in-out infinite;
+}
+.animate-pulse-slower {
+  animation: pulse-slower 8s ease-in-out infinite;
 }
 </style>
