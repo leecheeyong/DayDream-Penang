@@ -153,7 +153,7 @@ const sponsors = [
     <header class="relative pt-12 sm:pt-16 lg:pt-20 pb-8 sm:pb-12">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
-          class="backdrop-blur-md bg-white/70 rounded-3xl shadow-xl border border-white/40 p-8 sm:p-12 lg:p-16"
+          class="backdrop-blur-2xl bg-white/60 rounded-[2.5rem] shadow-2xl border border-white/40 p-8 sm:p-12 lg:p-16 glassy-animate"
         >
           <div class="flex flex-col items-center text-center space-y-6">
             <div
@@ -165,7 +165,7 @@ const sponsors = [
                 class="h-6 w-6 opacity-80"
               />
               <span
-                class="px-3 py-1 bg-red-500/80 text-white rounded-full text-xs font-bold tracking-wide"
+                class="px-3 py-1 bg-red-500/80 text-white rounded-full text-xs font-bold tracking-wide animate-fadein"
               >
                 Hack Club Presents
               </span>
@@ -173,14 +173,14 @@ const sponsors = [
             <img
               src="/daydream.svg"
               alt="Daydream Penang"
-              class="h-20 sm:h-28 md:h-32 w-auto drop-shadow-lg"
+              class="h-20 sm:h-28 md:h-32 w-auto drop-shadow-xl animate-pop"
             />
             <div class="space-y-3">
-              <p class="text-lg sm:text-xl text-[#5B8FA3] font-semibold italic">
+              <p class="text-lg sm:text-xl text-[#5B8FA3] font-semibold italic animate-fadein">
                 Memories of September 27th 2025
               </p>
               <h2
-                class="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#4A7C8C] italic"
+                class="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#4A7C8C] italic animate-slidein"
               >
                 Game jam for high schoolers
               </h2>
@@ -195,24 +195,24 @@ const sponsors = [
     <section class="relative py-8 sm:py-12 lg:py-16">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
-          class="backdrop-blur-md bg-white/60 rounded-3xl shadow-lg border border-white/40 p-6 sm:p-10 lg:p-12"
+          class="backdrop-blur-2xl bg-gradient-to-br from-white/70 via-white/40 to-[#e0e7ef]/60 rounded-[2.5rem] shadow-xl border border-white/40 p-6 sm:p-10 lg:p-12 glassy-animate"
         >
           <div class="text-center space-y-6">
             <h2
-              class="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#4A7C8C]"
+              class="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#4A7C8C] animate-slidein"
             >
               What is Daydream?
             </h2>
             <div
               class="space-y-4 text-gray-700 text-base sm:text-lg leading-relaxed"
             >
-              <p>
+              <p class="animate-fadein">
                 Daydream Penang was a student-led hackathon and game-making
                 workshop, part of Hack Club's global Daydream initiative. Our
                 goal was to give high school students in Penang the opportunity to
                 explore game development, even if they had never coded before.
               </p>
-              <p>
+              <p class="animate-fadein delay-100">
                 In just one day, participants built their very first playable
                 games using Godot. It wasn't just about programming, it was
                 about creativity, and turning ideas into something real.
@@ -223,14 +223,16 @@ const sponsors = [
       </div>
     </section>
     <section class="relative py-8 sm:py-12 lg:py-16">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
         <h2
-          class="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#4A7C8C] drop-shadow-lg mb-8 sm:mb-12 text-center"
+          class="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#4A7C8C] drop-shadow-lg mb-8 sm:mb-12 text-center animate-slidein"
         >
           Event Gallery
         </h2>
         <div v-if="loading" class="flex justify-center items-center py-20">
-          <div class="backdrop-blur-md bg-white/70 rounded-2xl p-8">
+          <div
+            class="backdrop-blur-2xl bg-white/70 rounded-2xl p-8 shadow-xl glassy-animate"
+          >
             <div
               class="animate-spin rounded-full h-12 w-12 border-b-2 border-[#4A7C8C]"
             ></div>
@@ -238,12 +240,12 @@ const sponsors = [
         </div>
         <div v-else-if="error" class="text-center py-20">
           <div
-            class="backdrop-blur-md bg-white/70 rounded-2xl p-8 inline-block"
+            class="backdrop-blur-2xl bg-white/70 rounded-2xl p-8 inline-block shadow-xl glassy-animate"
           >
             <p class="text-gray-700 mb-4">Failed to load media</p>
             <button
               @click="fetchMedia"
-              class="px-6 py-3 bg-[#4A7C8C] text-white rounded-xl hover:bg-[#3A6C7C] transition-colors shadow-lg"
+              class="px-6 py-3 bg-[#4A7C8C] text-white rounded-xl hover:bg-[#3A6C7C] transition-all shadow-lg hover:scale-105 focus:scale-105 focus:outline-none focus:ring-2 focus:ring-[#4A7C8C] animate-pop"
             >
               Retry
             </button>
@@ -251,16 +253,18 @@ const sponsors = [
         </div>
         <div
           v-else
-          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10"
         >
           <div
             v-for="(item, index) in mediaItems"
             :key="index"
-            class="relative group cursor-pointer flex items-center justify-center"
+            class="relative group cursor-pointer flex items-center justify-center animate-fadein"
             @click="openLightbox(item, index)"
+            tabindex="0"
+            @keydown.enter="openLightbox(item, index)"
           >
             <div
-              class="w-full aspect-[4/3] max-w-full rounded-3xl backdrop-blur-xl bg-white/30 shadow-2xl border border-white/40 flex items-center justify-center overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-3xl"
+              class="w-full aspect-[4/3] max-w-full rounded-[2rem] backdrop-blur-2xl bg-gradient-to-br from-white/60 via-white/30 to-[#e0e7ef]/40 shadow-2xl border border-white/40 flex items-center justify-center overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-3xl hover:bg-white/50 glassy-animate"
             >
               <div
                 v-if="isVideo(item.url)"
@@ -278,7 +282,7 @@ const sponsors = [
                   class="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-[#FF6B9D]/20 to-[#4A90E2]/20 group-hover:from-[#FF6B9D]/30 group-hover:to-[#4A90E2]/30 transition-all"
                 >
                   <div
-                    class="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-white/80 backdrop-blur-md flex items-center justify-center shadow-lg"
+                    class="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-white/80 backdrop-blur-md flex items-center justify-center shadow-lg animate-pop"
                   >
                     <svg
                       class="w-6 h-6 sm:w-8 sm:h-8 text-[#4A7C8C] ml-1"
@@ -300,7 +304,7 @@ const sponsors = [
                 <img
                   :src="item.url"
                   :alt="`Gallery image ${index + 1}`"
-                  class="object-contain w-full h-full relative z-10 rounded-2xl"
+                  class="object-contain w-full h-full relative z-10 rounded-2xl transition-transform duration-300 group-hover:scale-105"
                   loading="lazy"
                   @load="handleMediaLoad(index)"
                   @error="handleMediaError(index)"
@@ -339,10 +343,10 @@ const sponsors = [
     <section class="relative py-8 sm:py-10 lg:py-12">
       <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
-          class="backdrop-blur-md bg-white/70 rounded-2xl shadow-md border border-white/30 p-4 sm:p-6"
+          class="backdrop-blur-2xl bg-gradient-to-br from-white/70 via-white/40 to-[#e0e7ef]/60 rounded-2xl shadow-xl border border-white/30 p-4 sm:p-6 glassy-animate"
         >
           <h2
-            class="text-xl sm:text-2xl font-bold text-[#4A7C8C] mb-6 text-center"
+            class="text-xl sm:text-2xl font-bold text-[#4A7C8C] mb-6 text-center animate-slidein"
           >
             Proudly Supported By
           </h2>
@@ -352,7 +356,7 @@ const sponsors = [
             <div
               v-for="sponsor in sponsors"
               :key="sponsor.name"
-              class="flex items-center justify-center w-full p-2 rounded-xl hover:bg-white/40 transition-all duration-200"
+              class="flex items-center justify-center w-full p-2 rounded-xl hover:bg-white/40 transition-all duration-200 glassy-animate"
             >
               <a
                 :href="sponsor.url"
@@ -365,7 +369,7 @@ const sponsors = [
                 <img
                   :src="sponsor.logo"
                   :alt="sponsor.name"
-                  :class="`${sponsor.size} w-auto object-contain opacity-80 group-hover:opacity-100 transition-all duration-400 ease-in-out drop-shadow group-hover:scale-105`"
+                  :class="`${sponsor.size} w-auto object-contain opacity-80 group-hover:opacity-100 transition-all duration-400 ease-in-out drop-shadow group-hover:scale-110 animate-pop`"
                 />
               </a>
             </div>
@@ -373,12 +377,12 @@ const sponsors = [
         </div>
       </div>
     </section>
-    <footer class="relative py-8 sm:py-12 backdrop-blur-sm bg-white/30">
+    <footer class="relative py-8 sm:py-12 backdrop-blur-2xl bg-gradient-to-t from-white/60 via-white/30 to-transparent glassy-animate">
       <div
         class="text-center max-w-7xl mx-auto px-4 text-gray-500 sm:px-6 lg:px-8"
       >
-        <p>
-          Made with <span class="text-red-500">❤️</span> by
+        <p class="animate-fadein">
+          Made with <span class="text-red-500 animate-heartbeat">❤️</span> by
           <a
             href="https://github.com/leecheeyong"
             target="_blank"
@@ -387,7 +391,7 @@ const sponsors = [
             Chee Yong Lee </a
           >, Xin Ru Lim, Rui Zhe See & Khy Hern Ng
         </p>
-        <p>
+        <p class="animate-fadein delay-100">
           <a
             href="https://www.instagram.com/daydreampenang"
             class="underline hover:text-gray-700"
@@ -409,7 +413,7 @@ const sponsors = [
             >Global Event</a
           >
         </p>
-        <p class="mt-1">
+        <p class="mt-1 animate-fadein delay-200">
           Open source under the terms of
           <a
             href="https://github.com/leecheeyong/daydream-penang/blob/main/LICENSE"
@@ -421,100 +425,103 @@ const sponsors = [
       </div>
     </footer>
     <Teleport to="body">
-      <div
-        v-if="selectedMedia"
-        class="fixed inset-0 z-50 bg-black/95 backdrop-blur-xl flex items-center justify-center p-4"
-        @click="closeLightbox"
-      >
-        <button
+      <transition name="lightbox-fade">
+        <div
+          v-if="selectedMedia"
+          class="fixed inset-0 z-50 bg-black/80 backdrop-blur-2xl flex items-center justify-center p-4 animate-fadein"
           @click="closeLightbox"
-          class="absolute top-4 right-4 text-white/80 hover:text-white transition-colors z-10 p-2 rounded-full hover:bg-white/10"
-          aria-label="Close"
         >
-          <svg
-            class="w-8 h-8"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
+          <button
+            @click="closeLightbox"
+            class="absolute top-4 right-4 text-white/80 hover:text-white transition-colors z-10 p-2 rounded-full hover:bg-white/10 backdrop-blur-md shadow-lg"
+            aria-label="Close"
           >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
-        </button>
-        <button
-          v-if="selectedIndex > 0"
-          @click.stop="prevMedia"
-          class="absolute left-4 text-white/80 hover:text-white transition-colors z-10 p-2 rounded-full hover:bg-white/10"
-          aria-label="Previous"
-        >
-          <svg
-            class="w-8 h-8"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
+            <svg
+              class="w-8 h-8"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+          <button
+            v-if="selectedIndex > 0"
+            @click.stop="prevMedia"
+            class="absolute left-4 text-white/80 hover:text-white transition-colors z-10 p-2 rounded-full hover:bg-white/10 backdrop-blur-md shadow-lg"
+            aria-label="Previous"
           >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M15 19l-7-7 7-7"
-            />
-          </svg>
-        </button>
-        <button
-          v-if="selectedIndex < mediaItems.length - 1"
-          @click.stop="nextMedia"
-          class="absolute right-4 text-white/80 hover:text-white transition-colors z-10 p-2 rounded-full hover:bg-white/10"
-          aria-label="Next"
-        >
-          <svg
-            class="w-8 h-8"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
+            <svg
+              class="w-8 h-8"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+          </button>
+          <button
+            v-if="selectedIndex < mediaItems.length - 1"
+            @click.stop="nextMedia"
+            class="absolute right-4 text-white/80 hover:text-white transition-colors z-10 p-2 rounded-full hover:bg-white/10 backdrop-blur-md shadow-lg"
+            aria-label="Next"
           >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M9 5l7 7-7 7"
-            />
-          </svg>
-        </button>
-        <div
-          class="absolute top-4 left-4 text-white/90 text-sm backdrop-blur-sm bg-black/30 px-3 py-2 rounded-full z-10"
-        >
-          {{ selectedIndex + 1 }} / {{ mediaItems.length }}
+            <svg
+              class="w-8 h-8"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </button>
+          <div
+            class="absolute top-4 left-4 text-white/90 text-sm backdrop-blur-sm bg-black/30 px-3 py-2 rounded-full z-10"
+          >
+            {{ selectedIndex + 1 }} / {{ mediaItems.length }}
+          </div>
+          <div
+            class="max-w-7xl max-h-full w-full h-full flex items-center justify-center"
+            @click.stop
+          >
+            <transition name="media-zoom">
+              <video
+                v-if="isVideo(selectedMedia.url)"
+                :src="selectedMedia.url"
+                class="max-w-full max-h-full object-contain rounded-2xl shadow-2xl glassy-animate"
+                controls
+                autoplay
+              />
+              <img
+                v-else
+                :src="selectedMedia.url"
+                :alt="`Gallery image ${selectedIndex + 1}`"
+                class="max-w-full max-h-full object-contain rounded-2xl shadow-2xl glassy-animate"
+              />
+            </transition>
+          </div>
         </div>
-        <div
-          class="max-w-7xl max-h-full w-full h-full flex items-center justify-center"
-          @click.stop
-        >
-          <video
-            v-if="isVideo(selectedMedia.url)"
-            :src="selectedMedia.url"
-            class="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
-            controls
-            autoplay
-          />
-          <img
-            v-else
-            :src="selectedMedia.url"
-            :alt="`Gallery image ${selectedIndex + 1}`"
-            class="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
-          />
-        </div>
-      </div>
+      </transition>
     </Teleport>
   </div>
 </template>
 
 <style>
-/* ...existing code... */
 .fade-slide-enter-active,
 .fade-slide-leave-active {
   transition:
@@ -530,5 +537,75 @@ const sponsors = [
 .fade-slide-leave-from {
   opacity: 1;
   transform: translateY(0) scale(1);
+}
+
+.lightbox-fade-enter-active,
+.lightbox-fade-leave-active {
+  transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.lightbox-fade-enter-from,
+.lightbox-fade-leave-to {
+  opacity: 0;
+}
+.lightbox-fade-enter-to,
+.lightbox-fade-leave-from {
+  opacity: 1;
+}
+.media-zoom-enter-active,
+.media-zoom-leave-active {
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.35s;
+}
+.media-zoom-enter-from,
+.media-zoom-leave-to {
+  opacity: 0;
+  transform: scale(0.95);
+}
+.media-zoom-enter-to,
+.media-zoom-leave-from {
+  opacity: 1;
+  transform: scale(1);
+}
+
+@keyframes pop {
+  0% { transform: scale(0.92); opacity: 0.7; }
+  80% { transform: scale(1.04); opacity: 1; }
+  100% { transform: scale(1); }
+}
+@keyframes fadein {
+  from { opacity: 0; transform: translateY(16px);}
+  to { opacity: 1; transform: none;}
+}
+@keyframes slidein {
+  from { opacity: 0; transform: translateY(32px);}
+  to { opacity: 1; transform: none;}
+}
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1);}
+  10%, 30% { transform: scale(1.15);}
+  20%, 40% { transform: scale(0.95);}
+  50% { transform: scale(1.1);}
+  60% { transform: scale(1);}
+}
+.glassy-animate {
+  animation: fadein 0.7s cubic-bezier(0.4,0,0.2,1);
+  will-change: opacity, transform;
+}
+.animate-pop {
+  animation: pop 0.5s cubic-bezier(0.4,0,0.2,1);
+}
+.animate-fadein {
+  animation: fadein 0.7s cubic-bezier(0.4,0,0.2,1);
+}
+.animate-fadein.delay-100 {
+  animation-delay: 0.1s;
+}
+.animate-fadein.delay-200 {
+  animation-delay: 0.2s;
+}
+.animate-slidein {
+  animation: slidein 0.7s cubic-bezier(0.4,0,0.2,1);
+}
+.animate-heartbeat {
+  animation: heartbeat 1.2s infinite;
 }
 </style>
