@@ -22,7 +22,7 @@ const fetchMedia = async () => {
     if (!response.ok) throw new Error("Failed to fetch media");
     const data = await response.json();
     mediaItems.value = data.map((item) => ({
-      url: item.url,
+      url: 'https://dream.js.org'+item.url,
       loading: true,
       error: false,
     }));
